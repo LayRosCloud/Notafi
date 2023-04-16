@@ -1,0 +1,95 @@
+﻿<Window x:Class="NotafiThree.View.MainContainer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NotafiThree.View"
+        mc:Ignorable="d"
+        Title="MainContainer" Height="450" 
+        Width="800"
+        MinHeight="600"
+        MinWidth="1100"
+        WindowState="Normal"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="CanResizeWithGrip"
+        AllowsTransparency="True"
+        Background="Transparent">
+    <Border Background="{DynamicResource white-200}" CornerRadius="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid x:Name="sad" Grid.Row="1" Width="200" HorizontalAlignment="Left" Background="{DynamicResource gray-700}">
+                <ListBox x:Name="navigationButtons" BorderThickness="0" BorderBrush="Transparent" Background="{DynamicResource gray-700}" 
+                         HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Hidden" SelectionChanged="navigationButtons_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border CornerRadius="5" Background="#706e6e">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="10" Opacity="0.5" ShadowDepth="2"/>
+                                </Border.Effect>
+                                <WrapPanel HorizontalAlignment="Stretch" >
+                                    <Image Margin="5 0 0 0" Source="{Binding ImageSource}" Width="25"/>
+                                    <TextBlock Text="{Binding Text}" Margin="5 0 0 0" Foreground="#FFF" FontSize="25"/>
+                                </WrapPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Opacity" Value="0.9"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                </ListBox>
+            </Grid>
+            
+            <Frame x:Name="frame" Grid.Row="1" Margin="200 0 0 0" NavigationUIVisibility="Hidden"/>
+            
+            <Border CornerRadius="10 10 0 0" Background="{DynamicResource gray-700}" MouseDown="DragWindow" Grid.ColumnSpan="2">
+                <Grid>
+                    <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10">
+                        <Button Style="{StaticResource UpperToolButton}" Content="_" Click="Hide"/>
+                        <Button Style="{StaticResource UpperToolButton}" Content="[ ]" Click="ChangeState"/>
+                        <Button Style="{StaticResource UpperToolButton}" Content="X" Click="Exit"/>
+                    </WrapPanel>
+                    <Button VerticalAlignment="Center" 
+                            HorizontalAlignment="Left"
+                            Margin="10 0"
+                            BorderThickness="0"
+                            Background="Transparent"
+                            Click="Button_Click">
+                        <Button.Content>
+                            <WrapPanel>
+                                <Ellipse Width="30" Height="30">
+                                    <Ellipse.Fill>
+                                        <ImageBrush ImageSource="/Res/Images/profileImage.png" Stretch="UniformToFill"/>
+                                    </Ellipse.Fill>
+                                </Ellipse>
+                                <TextBlock
+                                    x:Name="title"
+                                    Text="notafi" 
+                                    FontSize="25"
+                                    Margin="5 0"
+                                    Foreground="White"
+                                    FontWeight="Bold"
+                                    Opacity="0.9"/>
+                            </WrapPanel>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" Opacity="0.5" ShadowDepth="2"/>
+                </Border.Effect>
+            </Border>
+
+        </Grid>
+        
+    </Border>
+</Window>

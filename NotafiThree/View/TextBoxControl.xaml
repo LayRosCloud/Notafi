@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="NotafiThree.View.TextBoxControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NotafiThree.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" x:Name="root">
+    <Border Style="{StaticResource bord}" Height="60">
+        <Border.Effect>
+            <DropShadowEffect Opacity="0.5" ShadowDepth="1" BlurRadius="10"/>
+        </Border.Effect>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="{Binding ElementName=root, Path=WidthImage}"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="login" IsReadOnly="{Binding ElementName=root, Path=IsReadOnly}" MaxLength="{Binding ElementName=root,Path=MaxLength}" Text="{Binding ElementName=root, Path=Text}" Margin="5 0" FontSize="25" BorderThickness="{Binding ElementName=root, Path=Thickness}" Height="50" Background="Transparent" BorderBrush="{DynamicResource red-200}" TextChanged="login_TextChanged"/>
+            <Border CornerRadius="100" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Width="{Binding ElementName=root, Path=WidthImage}" Height="{Binding ElementName=root, Path=WidthImage}">
+                <Border.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="{Binding ElementName=root, Path=ImageSource}"/>
+                </Border.Background>
+            </Border>
+            <TextBlock x:Name="placehold" Text="{Binding ElementName=root, Path=Placeholder}" FontSize="{Binding ElementName=login, Path=FontSize}" VerticalAlignment="Center" Opacity="0.5"/>
+            <Button x:Name="btnVis" Cursor="IBeam"  Style="{StaticResource DefaultButton}" Background="Transparent" Click="Button_Click"/>
+        </Grid>
+    </Border>
+</UserControl>

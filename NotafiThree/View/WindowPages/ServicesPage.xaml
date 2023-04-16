@@ -1,0 +1,82 @@
+﻿<Page x:Class="NotafiThree.View.WindowPages.ServicesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NotafiThree.View.WindowPages"
+      xmlns:myUI="clr-namespace:NotafiThree.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ServicesPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        
+
+        <ListView x:Name="listServices" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Width="150" Height="200">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+
+                        <Border Background="White" CornerRadius="10" Grid.RowSpan="2">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="10" Opacity="0.5" ShadowDepth="2"/>
+                            </Border.Effect>
+                        </Border>
+                        
+                        <Border Width="100" Height="100" CornerRadius="10">
+                            <Border.Background>
+                                <ImageBrush Stretch="Fill" ImageSource="{Binding ImageSource}"/>
+                            </Border.Background>
+                        </Border>
+
+                        <Button Style="{StaticResource DefaultButton}" Margin="15 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Button_Click">
+                            <Button.Content>
+                                <Image Source="/Res/Images/heart.png"/>
+                            </Button.Content>
+                        </Button>
+
+                        <WrapPanel Orientation="Vertical" Grid.Row="1">
+                            <TextBlock Text="{Binding Title}" TextWrapping="Wrap" FontSize="15" TextAlignment="Center" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Description}" TextWrapping="Wrap" Opacity="0.9" Margin="5" HorizontalAlignment="Center"/>
+                            <TextBlock Text="{Binding Price.Number}" Visibility="{Binding VisibleDisc}" TextDecorations="Strikethrough" HorizontalAlignment="Right"/>
+                            <TextBlock Text="{Binding PriceWithDiscount}" TextWrapping="Wrap" HorizontalAlignment="Right" FontSize="14" Foreground="{DynamicResource red-200}"/>
+                        </WrapPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
+        
+        <Border Background="White" CornerRadius="5">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" Opacity="0.5" ShadowDepth="2"/>
+            </Border.Effect>
+        </Border>
+        
+        <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+            <myUI:TextBoxControl x:Name="finder" Width="250" Placeholder="поиск..." Thickness="0 0 3 0" ImageSource="/Res/Images/loop.png" WidthImage="30" TextChanged="finder_TextChanged"/>
+            <Button Style="{StaticResource DefaultButton}" Margin="15 0 0 0" Click="orderby_Click">
+                <Button.Content>
+                    <Image x:Name="orderby" Source="/Res/Images/generic.png" Margin="5 0"/>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+        <Button Style="{StaticResource DefaultButton}" Margin="15 0 0 0" HorizontalAlignment="Right" Click="NavigateToFavoriteServices">
+            <Button.Content>
+                <Image Source="/Res/Images/heart.png" Margin="5 0" Width="30"/>
+            </Button.Content>
+        </Button>
+        <Button x:Name="viewChanged" Visibility="Collapsed" Grid.Row="1" Margin="10 20" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{StaticResource DefaultButton}" Content="Показать" Background="{DynamicResource wheat-200}" Width="200" Click="viewChanged_Click"/>
+    </Grid>
+</Page>

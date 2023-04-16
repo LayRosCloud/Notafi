@@ -1,0 +1,50 @@
+﻿<Page x:Class="NotafiThree.View.WindowPages.CreatorDealPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NotafiThree.View.WindowPages"
+      xmlns:ui="clr-namespace:NotafiThree.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CreatorDealPage">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center">
+            <Grid Height="40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.ColumnSpan="2" Background="White" CornerRadius="5">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="1" BlurRadius="20"/>
+                    </Border.Effect>
+                </Border>
+                <TextBlock Text="Выберите клиента: " FontWeight="Bold" VerticalAlignment="Center"/>
+                <ComboBox x:Name="allClients" IsEditable="True" DisplayMemberPath="FullName" SelectedIndex="0" BorderThickness="0" Grid.Column="1" SelectionChanged="allClients_SelectionChanged"/>
+            </Grid>
+            <TextBlock x:Name="fullDataOfClient" Margin="10 0"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Grid.ColumnSpan="2" Grid.RowSpan="2" Background="White" CornerRadius="5">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="1" BlurRadius="20" Opacity="0.5"/>
+                    </Border.Effect>
+                </Border>
+                <TextBlock Text="Выберите дату заключения сделки: " FontWeight="Bold"/>
+                <DatePicker x:Name="dpDate" Grid.Column="1" BorderThickness="0" Background="White" Margin="0 0 0 5"/>
+                <TextBlock Grid.Row="1" Text="Введите коммисионные" FontWeight="Bold" VerticalAlignment="Center"/>
+                <ui:TextBoxControl x:Name="commisionValue" Grid.Column="1" Grid.Row="1" Height="30"/>
+            </Grid>
+        </StackPanel>
+        <Button Content="Добавить" Style="{StaticResource DefaultButton}" Margin="0 5 0 0" Click="Button_Click" VerticalAlignment="Bottom"/>
+    </Grid>
+</Page>

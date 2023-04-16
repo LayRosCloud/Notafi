@@ -1,0 +1,203 @@
+﻿<Page x:Class="NotafiThree.View.WindowPages.ProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NotafiThree.View.WindowPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProfilePage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border CornerRadius="10" Background="White" Margin="10">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="1" Opacity="0.5" BlurRadius="20"/>
+            </Border.Effect>
+        </Border>
+        <WrapPanel VerticalAlignment="Center">
+            <Ellipse Width="90" Height="90" Margin="30 0 0 0">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="/Res/Images/profileImage.png"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            <StackPanel VerticalAlignment="Center" Margin="5 0 0 0">
+                <TextBlock FontWeight="Bold" Text="{Binding Login}"  FontSize="25"/>
+                <TextBlock Text="{Binding Email}" Opacity="0.7"/>
+            </StackPanel>
+        </WrapPanel>
+
+        <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 20 0">
+            <Button Style="{StaticResource DefaultButton}" Width="200" Background="Green" Foreground="White"  Content="Сохранить данные" Margin="0 0 10 0"/>
+            <Button Style="{StaticResource DefaultButton}" Width="200" Background="{DynamicResource red-200}" Foreground="White"  Content="Выйти"/>
+        </WrapPanel>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.75*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Margin="10" Background="White" CornerRadius="10">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="20" ShadowDepth="1" Opacity="0.5"/>
+                </Border.Effect>
+                <StackPanel Margin="5">
+                    <TextBlock Text="Личные данные" Margin="5" FontWeight="Bold" FontSize="15"/>
+                    <TextBlock Text="ФИО" FontWeight="Bold"/>
+                    <Grid Margin="10 0 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Фамилия" Grid.Row="0" FontSize="15"/>
+                        <TextBox Text="{Binding Person.LastName}" Grid.Row="0" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+
+                        <TextBlock Text="Имя" Grid.Row="1" FontSize="15"/>
+                        <TextBox Text="{Binding Person.FirstName}" Grid.Row="1" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+
+                        <TextBlock Text="Отчество" Grid.Row="2" FontSize="15"/>
+                        <TextBox Text="{Binding Person.Patronymic}" Grid.Row="2" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+                    </Grid>
+                    <TextBlock Text="Личные характеристики" FontWeight="Bold"/>
+                    <Grid Margin="10 0 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Пол" Grid.Row="0" FontSize="15"/>
+                        <TextBox Text="{Binding Person.Sex}" Grid.Row="0" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+                        <TextBlock Text="Дата рождения" Grid.Row="1" FontSize="15" VerticalAlignment="Center"/>
+                        <DatePicker Text="{Binding Person.BirthDay}" Grid.Row="1" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+                        <TextBlock Text="Телефон" Grid.Row="2" FontSize="15" VerticalAlignment="Center"/>
+                        <TextBox Text="{Binding Person.Phone}" Grid.Row="2" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+                    </Grid>
+                    <TextBlock Text="Паспортные данные" FontWeight="Bold"/>
+                    <Grid Margin="10 0 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Серия" Grid.Row="0" FontSize="15"/>
+                        <TextBox Text="{Binding Person.Series}" Grid.Row="0" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+                        <TextBlock Text="Номер" Grid.Row="1" FontSize="15"/>
+                        <TextBox Text="{Binding Person.NumberOfPassport}" Grid.Row="1" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+                        <TextBlock Text="Кем выдан" Grid.Row="2" FontSize="15"/>
+                        <ComboBox x:Name="cmbISW" SelectedIndex="{Binding Person.ISW.Id}" DisplayMemberPath="FullName" Grid.Row="2" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Margin="10" Background="White" CornerRadius="10">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="20" ShadowDepth="1" Opacity="0.5"/>
+                    </Border.Effect>
+                    <StackPanel Margin="5">
+                        <TextBlock Text="Данные для авторизации" Margin="5" FontWeight="Bold" FontSize="15"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Логин" Grid.Row="0" FontSize="15"/>
+                            <TextBox Text="{Binding Login}" Grid.Row="0" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+
+                            <TextBlock Text="Почта" Grid.Row="1" FontSize="15"/>
+                            <TextBox Text="{Binding Email}" Grid.Row="1" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+
+                            <TextBlock Text="Пароль" Grid.Row="2" FontSize="15"/>
+                            <PasswordBox x:Name="pass" Grid.Row="2" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+
+                            <TextBlock FontWeight="Bold" Text="Ваша роль" Grid.Row="3" FontSize="15"/>
+                            <TextBlock FontWeight="Bold" Text="{Binding Role.Name}" Grid.Row="3" Grid.Column="1" FontSize="15"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+                <Border Margin="10" Background="White" CornerRadius="10" Grid.Row="1">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="20" ShadowDepth="1" Opacity="0.5"/>
+                    </Border.Effect>
+                    <StackPanel Margin="5">
+                        <TextBlock Text="Адресные данные" Margin="5" FontWeight="Bold" FontSize="15"/>
+                        <TabControl>
+                            <TabItem Header="Подставная информация" Background="Transparent" BorderThickness="0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Text="Страна" Grid.Row="0" FontSize="15"/>
+                                    <ComboBox x:Name="cmbCountry" DisplayMemberPath="Name" SelectedIndex="{Binding Person.Address.Country.Id}" Grid.Row="0" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+                                    <TextBlock Text="Регион" Grid.Row="1" FontSize="15"/>
+                                    <ComboBox x:Name="cmbRegion" IsEditable="True" DisplayMemberPath="Name" SelectedIndex="{Binding Person.Address.Region.Id}" Grid.Row="1" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+                                    <TextBlock Text="Почтовый индекс" Grid.Row="2" FontSize="15"/>
+                                    <ComboBox x:Name="cmbMailAddress" IsEditable="True" DisplayMemberPath="Name" SelectedIndex="{Binding Person.Address.MailAddress.Id}" Grid.Row="2" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+                                    <TextBlock Text="Город" Grid.Row="3" FontSize="15"/>
+                                    <ComboBox x:Name="cmbCity" IsEditable="True" DisplayMemberPath="Name" SelectedIndex="{Binding Person.Address.City.Id}" Grid.Row="3" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+                                    <TextBlock Text="Улица" Grid.Row="4" FontSize="15"/>
+                                    <ComboBox x:Name="cmbStreet" IsEditable="True" DisplayMemberPath="Name" SelectedIndex="{Binding Person.Address.Street.Id}" Grid.Row="4" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+                                </Grid>
+                            </TabItem>
+                            <TabItem Header="Самоличный адрес" Background="Transparent" BorderThickness="0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    
+                                    <TextBlock Text="Корпус" Grid.Row="0" FontSize="15"/>
+                                    <TextBox Text="{Binding Person.Address.Corpus}" Grid.Row="0" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+                                    <TextBlock Text="Номер дома" Grid.Row="1" FontSize="15"/>
+                                    <TextBox Text="{Binding Person.Address.HomeNumber}" Grid.Row="1" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+                                    <TextBlock Text="Номер квартиры" Grid.Row="2" FontSize="15"/>
+                                    <TextBox Text="{Binding Person.Address.Apartment}" Grid.Row="2" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+                                </Grid>
+                            </TabItem>
+                        </TabControl>
+                        
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
