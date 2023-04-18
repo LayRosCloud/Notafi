@@ -4,11 +4,32 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NotafiThree.View.WindowPages"
+      xmlns:ui="clr-namespace:NotafiThree.View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="UserControllerPage">
+      Title="UserControllerPage" x:Name="root">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <WrapPanel VerticalAlignment="Center">
+            <ui:TextBoxControl Thickness="0 0 3 0" WidthImage="30" Width="200" Placeholder="Поиск..."/>
+        </WrapPanel>
+        <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Button Style="{StaticResource DefaultButton}" Content="Изменить" Click="Button_Click"/>
+        </WrapPanel>
+        <DataGrid x:Name="users" Grid.Row="1" AutoGenerateColumns="False" RowStyle="{StaticResource rowStyle}" CellStyle="{StaticResource cellStyle}" IsReadOnly="True" GridLinesVisibility="None">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Person.LastName}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Person.FirstName}"/>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Person.Patronymic}"/>
+                <DataGridTextColumn Header="Серия" Binding="{Binding Person.Series}"/>
+                <DataGridTextColumn Header="Номер" Binding="{Binding Person.NumberOfPassport}"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding Person.Phone}"/>
+                <DataGridTextColumn Header="Роль" Binding="{Binding Role.Name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

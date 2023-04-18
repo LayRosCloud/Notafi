@@ -147,8 +147,14 @@
     <Compile Include="View\WindowPages\AddingServiceOnDealPage.xaml.cs">
       <DependentUpon>AddingServiceOnDealPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\WindowPages\ChangerRoleUser.xaml.cs">
+      <DependentUpon>ChangerRoleUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\WindowPages\CreatorDealPage.xaml.cs">
       <DependentUpon>CreatorDealPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowPages\CreatorServicePage.xaml.cs">
+      <DependentUpon>CreatorServicePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\WindowPages\DealControllerPage.xaml.cs">
       <DependentUpon>DealControllerPage.xaml</DependentUpon>
@@ -224,7 +230,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\WindowPages\ChangerRoleUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\WindowPages\CreatorDealPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowPages\CreatorServicePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

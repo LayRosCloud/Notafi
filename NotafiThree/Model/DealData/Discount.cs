@@ -6,8 +6,8 @@ namespace NotafiThree.Model.DealData
 {
     public class Discount : DatabaseModel<Discount>
     {
-        public double Number { get; private set; }
-        public DateTime Date { get; private set; }
+        public double Number { get; set; }
+        public DateTime Date { get; set; }
 
         public Discount(int id, double number, DateTime date) 
             : base(id)

@@ -1,10 +1,10 @@
 ﻿internal class Strings
 {
     private readonly static string SERVER = "127.0.0.1";
-    private readonly static string USER = "root";
-    private readonly static string PASSWORD = "ozciQuEO8qV46pbc";
-    private readonly static string PORT = "3307";
-    private readonly static string DATABASE = "Notarius";
+    private readonly static string USER = "dmlUser";
+    private readonly static string PASSWORD = "root";
+    private readonly static string PORT = "3306";
+    private readonly static string DATABASE = "notarius";
 
     public readonly static string CONNECTION = 
         $"server={SERVER};" +

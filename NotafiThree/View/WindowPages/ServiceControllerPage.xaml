@@ -4,11 +4,30 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:NotafiThree.View.WindowPages"
+      xmlns:ui="clr-namespace:NotafiThree.View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ServiceControllerPage">
-
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="services" Grid.Row="1" SelectionMode="Single" IsReadOnly="True"  GridLinesVisibility="None" RowStyle="{StaticResource rowStyle}" CellStyle="{StaticResource cellStyle}"  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding Title}"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Description}"/>
+                <DataGridTextColumn Header="Тип документа" Binding="{Binding TypeOfDocument}"/>
+                <DataGridTextColumn Header="Цена" Binding="{Binding Price.Number}"/>
+                <DataGridTextColumn Header="Скидка" Binding="{Binding Discount.Number}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ui:TextBoxControl Width="200" Placeholder="Поиск..." WidthImage="30" Thickness="0 0 3 0" HorizontalAlignment="Left"/>
+        <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Button Style="{StaticResource DefaultButton}" Content="Обновить" Width="120" Click="Button_Click_3"/>
+            <Button Style="{StaticResource DefaultButton}" Content="Добавить" Width="120" Click="Button_Click_2"/>
+            <Button Style="{StaticResource DefaultButton}" Content="Изменить" Margin="5 0 0 0" Width="120" Click="Button_Click_1"/>
+            <Button Style="{StaticResource DefaultButton}" Content="Удалить" Margin="5 0 0 0" Width="120" Click="Button_Click"/>
+        </WrapPanel>
     </Grid>
 </Page>

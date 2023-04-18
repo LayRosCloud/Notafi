@@ -8,16 +8,16 @@ namespace NotafiThree.Model.DealData
 {
     public class Service : DatabaseModel<Service>
     {
-        public string Title { get; private set; }
-        public string Description { get; private set; }
-        public string ImageIcon { get; private set; }
-        public string TypeOfDocument { get; private set; }
+        public string Title { get;  set; }
+        public string Description { get;  set; }
+        public string ImageIcon { get; set; }
+        public string TypeOfDocument { get; set; }
 
         private int _priceId;
         private int _discountId;
 
-        public Price Price { get; private set; }
-        public Discount Discount { get; private set; }
+        public Price Price { get;  set; }
+        public Discount Discount { get; set; }
 
         public double PriceWithDiscount
         {
@@ -93,7 +93,8 @@ namespace NotafiThree.Model.DealData
                 {"@imageIcon", ImageIcon},
                 {"@typeOfDoc", TypeOfDocument},
                 {"@priceId", Price.Id},
-                {"@discountId", Discount.Id}
+                {"@discountId", Discount.Id},
+                {"@id", Id}
             };
 
             ExecuteQuery("UPDATE `Service` SET `Title`=@title,`Description`=@description,`TypeOfDocument`=@typeOfDoc,`PriceID`=@priceId,`DiscountID`=@discountId,`ImageIcon`=@imageIcon WHERE Id = @id",dv);

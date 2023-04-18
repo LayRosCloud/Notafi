@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace NotafiThree.Model.PersonalityData
 {
-    internal class User : DatabaseModel<User>
+    public class User : DatabaseModel<User>
     {
         public Person Person { get; set; }
         public string Login { get; set; }
