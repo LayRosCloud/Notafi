@@ -7,12 +7,9 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ChangerRoleUser">
-
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <TextBlock Text="Выберите роль: "/>
         <ComboBox x:Name="roles" Width="200" DisplayMemberPath="Name"/>
-        <Button Style="{StaticResource DefaultButton}" Content="Применить" Click="Button_Click"/>
+        <Button Style="{StaticResource DefaultButton}" Content="Применить" Click="UpdateRoleOfUser"/>
     </StackPanel>
-
-
 </Page>

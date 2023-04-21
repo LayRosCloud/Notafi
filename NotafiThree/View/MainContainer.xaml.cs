@@ -21,23 +21,35 @@ namespace NotafiThree.View
 
             List<NavigationButton> lists = new List<NavigationButton>
             {
-                new NavigationButton("/Res/Images/profileNavigate.png", "профиль", new ProfilePage()),
-                new NavigationButton("/Res/Images/serviceNavigate.png", "услуги", new ServicesPage(frame)),
+                new NavigationButton(Strings.NavigationButtons.ICON_PROFILE, 
+                Strings.NavigationButtons.TITLE_PROFILE, 
+                new ProfilePage(this)),
+
+                new NavigationButton(Strings.NavigationButtons.ICON_SERVICE, 
+                Strings.NavigationButtons.TITLE_SERVICE, 
+                new ServicesPage(frame)),
                 
                 
             };
             
             if(SaveElementData.UserIntance.Role.Id == 2)
             {
-                lists.Add(new NavigationButton("/Res/Images/serviceNavigate.png", "сделки", new DealControllerPage(frame)));
+                lists.Add(new NavigationButton(Strings.NavigationButtons.ICON_DEAL, 
+                    Strings.NavigationButtons.TITLE_DEAL, 
+                    new DealControllerPage(frame)));
             }
             else if(SaveElementData.UserIntance.Role.Id == 3)
             {
-                lists.Add(new NavigationButton("/Res/Images/serviceNavigate.png", "пользователи", new UserControllerPage(frame)));
-                lists.Add(new NavigationButton("/Res/Images/serviceNavigate.png", "упр. услугами", new ServiceControllerPage(frame)));
+                lists.Add(new NavigationButton(Strings.NavigationButtons.ICON_USERS, 
+                    Strings.NavigationButtons.TITLE_USERS, 
+                    new UserControllerPage(frame)));
+
+                lists.Add(new NavigationButton(Strings.NavigationButtons.ICON_CONTROLLER_SERVICE, 
+                    Strings.NavigationButtons.TITLE_CONTROLLER_SERVICE, 
+                    new ServiceControllerPage(frame)));
             }
 
-            lists.Add(new NavigationButton("/Res/Images/logout.png", "выйти", null));
+            lists.Add(new NavigationButton(Strings.NavigationButtons.ICON_LOGOUT, Strings.NavigationButtons.TITLE_LOGOUT, null));
 
             navigationButtons.ItemsSource = lists;
 
@@ -91,18 +103,21 @@ namespace NotafiThree.View
         {
             NavigationButton navigation = navigationButtons.SelectedItem as NavigationButton;
 
-            if(navigation != null)
+            if(navigation == null)
             {
-                if(navigation.Text == "выйти")
-                {
-                    Window window = new AuthMainContainer();
-                    window.Show();
-                    Close();
-                    return;
-                }
-
-                frame.Navigate(navigation.NavigatePage);
+                return;
             }
-        }
+
+			if (navigation.Text == Strings.NavigationButtons.TITLE_LOGOUT)
+			{
+				Window window = new AuthMainContainer();
+				window.Show();
+				Close();
+
+				return;
+			}
+
+			frame.Navigate(navigation.NavigatePage);
+		}
     }
 }

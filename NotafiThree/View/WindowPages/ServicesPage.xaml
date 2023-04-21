@@ -13,8 +13,6 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        
-
         <ListView x:Name="listServices" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="Transparent">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -32,11 +30,11 @@
                         
                         <Border Width="100" Height="100" CornerRadius="10">
                             <Border.Background>
-                                <ImageBrush Stretch="Fill" ImageSource="{Binding ImageSource}"/>
+                                <ImageBrush Stretch="Fill" ImageSource="/Res/Images/imageErrorFull.png"/>
                             </Border.Background>
                         </Border>
 
-                        <Button Style="{StaticResource DefaultButton}" Margin="15 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="Button_Click">
+                        <Button Style="{StaticResource DefaultButton}" Margin="15 0 0 0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="AddServiceToFavoriteList">
                             <Button.Content>
                                 <Image Source="/Res/Images/heart.png"/>
                             </Button.Content>

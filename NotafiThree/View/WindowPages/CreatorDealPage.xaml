@@ -22,7 +22,7 @@
                     </Border.Effect>
                 </Border>
                 <TextBlock Text="Выберите клиента: " FontWeight="Bold" VerticalAlignment="Center"/>
-                <ComboBox x:Name="allClients" IsEditable="True" DisplayMemberPath="FullName" SelectedIndex="0" BorderThickness="0" Grid.Column="1" SelectionChanged="allClients_SelectionChanged"/>
+                <ComboBox x:Name="allClients" IsEditable="True" DisplayMemberPath="FullName" VerticalContentAlignment="Center" SelectedIndex="0" BorderThickness="0" Grid.Column="1" SelectionChanged="allClients_SelectionChanged"/>
             </Grid>
             <TextBlock x:Name="fullDataOfClient" Margin="10 0"/>
             <Grid>
@@ -45,6 +45,6 @@
                 <ui:TextBoxControl x:Name="commisionValue" Grid.Column="1" Grid.Row="1" Height="30"/>
             </Grid>
         </StackPanel>
-        <Button Content="Добавить" Style="{StaticResource DefaultButton}" Margin="0 5 0 0" Click="Button_Click" VerticalAlignment="Bottom"/>
+        <Button Content="Добавить" Style="{StaticResource DefaultButton}" Margin="0 5 0 0" Click="CreateDeal" VerticalAlignment="Bottom"/>
     </Grid>
 </Page>

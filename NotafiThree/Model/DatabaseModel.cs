@@ -1,7 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using NotafiThree.Data;
 using System.Collections.Generic;
-using System.Windows.Markup;
 using System;
 
 namespace NotafiThree.Model
@@ -24,6 +23,7 @@ namespace NotafiThree.Model
             };
             ExecuteQuery($"DELETE FROM {TABLE_NAME} WHERE Id = @id", dv);
         }
+
         public void SetId(int value)
         {
             if(value < 1)
@@ -33,6 +33,7 @@ namespace NotafiThree.Model
 
             Id = value;
         }
+
         public List<T> SelectAll()
         {
             DataManager dm = new DataManager();

@@ -22,12 +22,14 @@
                 <DataGridTextColumn Header="Скидка" Binding="{Binding Discount.Number}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <ui:TextBoxControl Width="200" Placeholder="Поиск..." WidthImage="30" Thickness="0 0 3 0" HorizontalAlignment="Left"/>
+        <WrapPanel VerticalAlignment="Center">
+            <ui:TextBoxControl x:Name="finder" Width="200" Placeholder="Поиск..." WidthImage="30" Thickness="0 0 3 0" HorizontalAlignment="Left"/>
+            <Button Style="{StaticResource DefaultButton}" Content="Найти" Width="120" Click="Refresh"/>
+        </WrapPanel>
         <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center">
-            <Button Style="{StaticResource DefaultButton}" Content="Обновить" Width="120" Click="Button_Click_3"/>
-            <Button Style="{StaticResource DefaultButton}" Content="Добавить" Width="120" Click="Button_Click_2"/>
-            <Button Style="{StaticResource DefaultButton}" Content="Изменить" Margin="5 0 0 0" Width="120" Click="Button_Click_1"/>
-            <Button Style="{StaticResource DefaultButton}" Content="Удалить" Margin="5 0 0 0" Width="120" Click="Button_Click"/>
+            <Button Style="{StaticResource DefaultButton}" Content="Добавить" Width="120" Click="CreateService"/>
+            <Button Style="{StaticResource DefaultButton}" Content="Изменить" Margin="5 0 0 0" Width="120" Click="UpdateService"/>
+            <Button Style="{StaticResource DefaultButton}" Content="Удалить" Margin="5 0 0 0" Width="120" Click="DeleteService"/>
         </WrapPanel>
     </Grid>
 </Page>

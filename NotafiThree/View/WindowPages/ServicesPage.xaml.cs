@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using NotafiThree.Data;
 using NotafiThree.Model.DealData;
@@ -61,7 +60,7 @@ namespace NotafiThree.View.WindowPages
             _frame.Navigate(new FavoritesServicePage(_frame));
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void AddServiceToFavoriteList(object sender, RoutedEventArgs e)
         {
             Service service = (sender as Button).DataContext as Service;
 

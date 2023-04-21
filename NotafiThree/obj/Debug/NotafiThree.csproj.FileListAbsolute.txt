@@ -134,3 +134,4 @@ C:\Users\betrayal\Desktop\app\Notafi\NotafiThree\obj\Debug\View\WindowPages\Crea
 C:\Users\betrayal\Desktop\app\Notafi\NotafiThree\obj\Debug\View\WindowPages\CreatorServicePage.baml
 C:\Users\betrayal\Desktop\app\Notafi\NotafiThree\obj\Debug\View\WindowPages\ChangerRoleUser.g.cs
 C:\Users\betrayal\Desktop\app\Notafi\NotafiThree\obj\Debug\View\WindowPages\ChangerRoleUser.baml
+C:\Users\betrayal\Desktop\app\Notafi\NotafiThree\obj\Debug\NotafiThree.csproj.ResolveComReference.cache

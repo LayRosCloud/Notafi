@@ -49,7 +49,6 @@ namespace NotafiThree.View
         public static readonly DependencyProperty IsReadOnlyProperty =
             DependencyProperty.Register("IsReadOnly", typeof(bool), typeof(TextBoxControl), new PropertyMetadata(false));
 
-
         public string Placeholder
         {
             get { return (string)GetValue(PlaceholderProperty); }
@@ -67,8 +66,6 @@ namespace NotafiThree.View
 
         public static readonly DependencyProperty VisibilityImageProperty =
             DependencyProperty.Register("VisibilityImage", typeof(Visibility), typeof(TextBoxControl), new PropertyMetadata(Visibility.Visible));
-
-
 
         public int WidthImage
         {
@@ -94,7 +91,6 @@ namespace NotafiThree.View
             btnVis.Visibility = Visibility.Collapsed;
             login.Focus();
         }
-
 
         private void login_TextChanged(object sender, TextChangedEventArgs e)
         {

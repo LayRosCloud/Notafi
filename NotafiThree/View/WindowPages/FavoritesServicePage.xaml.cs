@@ -30,7 +30,7 @@ namespace NotafiThree.View.WindowPages
                 .Sum(x => x.Service.PriceWithDiscount).ToString();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void DeleteFavoriteService(object sender, RoutedEventArgs e)
         {
             var favoriteService = (sender as Button).DataContext as FavoriteService;
             
@@ -41,7 +41,7 @@ namespace NotafiThree.View.WindowPages
             }
         }
 
-        private void backBtn_Click(object sender, RoutedEventArgs e)
+        private void Back(object sender, RoutedEventArgs e)
         {
             _frame.GoBack();
         }

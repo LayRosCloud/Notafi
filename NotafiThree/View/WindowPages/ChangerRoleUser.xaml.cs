@@ -1,9 +1,6 @@
-﻿using NotafiThree.Model.PersonalityData;
-using System;
-using System.Collections.Generic;
+﻿using NotafiThree.Model.DealData;
+using NotafiThree.Model.PersonalityData;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -25,13 +22,31 @@ namespace NotafiThree.View.WindowPages
 			roles.SelectedIndex = _user.Role.Id - 1;
 		}
 
-		private void Button_Click(object sender, RoutedEventArgs e)
+		private void UpdateRoleOfUser(object sender, RoutedEventArgs e)
 		{
 			Role role = roles.SelectedItem as Role;
 			if(role != null)
 			{
 				_user.Role = role;
 				_user.Update();
+
+				Worker worker = DataSet.GetWorkers().Where(x => x.Person.Id == _user.Person.Id).FirstOrDefault();
+				if(worker == null)
+				{
+					worker = new Worker(0, _user.Person.Id, 1);
+					worker.SetPersonOnId();
+					worker.SetPostOnId();
+				}
+				
+				if(role.Id == 1)
+				{
+					worker.Delete();
+				}
+				else if(role.Id == 2 && worker.Id == 0)
+				{
+					worker.Insert();
+				}
+
 				_frame.Navigate(new UserControllerPage(_frame));
 			}
         }

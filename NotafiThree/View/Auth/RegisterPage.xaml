@@ -88,32 +88,32 @@
                 <StackPanel x:Name="spThirdStep" Visibility="Collapsed">
                     <Label Style="{StaticResource logTxt}" Content="Страна"/>
                     <ComboBox x:Name="cmbCountry" Height="50" IsEditable="True" FontSize="25" DisplayMemberPath="Name" VerticalContentAlignment="Center"/>
-                    
+
                     <Label Style="{StaticResource logTxt}" Content="Регион"/>
                     <ComboBox x:Name="cmbRegion" Height="50" IsEditable="True" FontSize="25" DisplayMemberPath="Name" VerticalContentAlignment="Center"/>
-                    
+
                     <Label Style="{StaticResource logTxt}" Content="Почтовый индекс"/>
                     <ComboBox x:Name="cmbMailAddress" Height="50" IsEditable="True" FontSize="25" DisplayMemberPath="Name" VerticalContentAlignment="Center"/>
-                    
+
                     <Label Style="{StaticResource logTxt}" Content="Город"/>
                     <ComboBox x:Name="cmbCity" Height="50" IsEditable="True" FontSize="25" DisplayMemberPath="Name" VerticalContentAlignment="Center"/>
-                    
+
                     <Label Style="{StaticResource logTxt}" Content="Улица"/>
                     <ComboBox x:Name="cmbStreet" Height="50" IsEditable="True" FontSize="25" DisplayMemberPath="Name" VerticalContentAlignment="Center"/>
-                    
+
                     <Label Style="{StaticResource logTxt}" Content="Корпус"/>
                     <myUI:TextBoxControl x:Name="tbCorpus" Text="" MaxLength="5" Thickness="0 0 0 3" WidthImage="0"/>
-                    
+
                     <Label Style="{StaticResource logTxt}" Content="Номер дома"/>
                     <myUI:TextBoxControl x:Name="tbNumberOfHome" MaxLength="6" Thickness="0 0 0 3" WidthImage="0" PreviewTextInput="InputOnlyNumber"/>
-                    
+
                     <Label Style="{StaticResource logTxt}" Content="Номер квартиры" PreviewTextInput="InputOnlyNumber"/>
                     <myUI:TextBoxControl x:Name="tbApartament" MaxLength="5" Thickness="0 0 0 3" WidthImage="0"/>
                     <Button Style="{StaticResource DefaultButton}" Content="Подтвердить" Width="200"  Margin="5" HorizontalAlignment="Right" Click="RegisterUserThirdStep"/>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>
-        
+
         <!--Всплывающее окно-->
         <Grid x:Name="messageAccepted"  Visibility="Collapsed">
             <Border Background="Black" Opacity="0.5" CornerRadius="5"/>
@@ -125,7 +125,7 @@
                     <TextBlock Text="Подтверждение" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center"/>
                     <StackPanel x:Name="spFirstAccept" Visibility="Visible">
                         <TextBlock FontSize="20" TextWrapping="Wrap" HorizontalAlignment="Center">
-                        Для продолжения вам необходимо перейти по следующей <Hyperlink NavigateUri="google.com">ссылке к телеграмм боту</Hyperlink> и нажать <Bold>/start</Bold>
+                        Для продолжения вам необходимо перейти по следующей <Hyperlink NavigateUri="https://mail.google.com/mail/u/0/#inbox">ссылке на почту</Hyperlink> и ввести <Bold>код</Bold>
                         </TextBlock>
                         <Button Style="{StaticResource DefaultButton}" Margin="5" Content="Я нажал '/start'" Click="ChangeVisibleAccept"/>
                     </StackPanel>

@@ -15,10 +15,11 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <WrapPanel VerticalAlignment="Center">
-            <ui:TextBoxControl Thickness="0 0 3 0" WidthImage="30" Width="200" Placeholder="Поиск..."/>
+            <ui:TextBoxControl x:Name="finder" Thickness="0 0 3 0" WidthImage="30" Width="200" Placeholder="Поиск..."/>
+            <Button Style="{StaticResource DefaultButton}" Content="Найти" Click="Find"/>
         </WrapPanel>
         <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center">
-            <Button Style="{StaticResource DefaultButton}" Content="Изменить" Click="Button_Click"/>
+            <Button Style="{StaticResource DefaultButton}" Content="Изменить" Click="NavigateToChangeRoleUser"/>
         </WrapPanel>
         <DataGrid x:Name="users" Grid.Row="1" AutoGenerateColumns="False" RowStyle="{StaticResource rowStyle}" CellStyle="{StaticResource cellStyle}" IsReadOnly="True" GridLinesVisibility="None">
             <DataGrid.Columns>

@@ -9,7 +9,6 @@ namespace NotafiThree.Model.DealData
         public double Number { get; set; }
         public DateTime Date { get; set; }
 
-
         public Price(int id, double number, DateTime date) : base(id)
         {
             Number = number;

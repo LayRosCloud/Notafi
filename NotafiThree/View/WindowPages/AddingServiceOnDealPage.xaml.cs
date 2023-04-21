@@ -21,7 +21,7 @@ namespace NotafiThree.View.WindowPages
             SetText(service);
         }
 
-        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void AddServiceToDeal(object sender, System.Windows.RoutedEventArgs e)
         {
             DealService dealService = new DealService(0, Convert.ToInt32(number.Text), _deal.Deal, services.SelectedItem as Service);
             dealService.Insert();

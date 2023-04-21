@@ -24,7 +24,7 @@ namespace NotafiThree.View.WindowPages
             _frame = frame;
         }
 
-        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void CreateDeal(object sender, RoutedEventArgs e)
         {
             Person person = allClients.SelectedItem as Person;
             
@@ -39,14 +39,8 @@ namespace NotafiThree.View.WindowPages
 
                 deal.Insert();
 
-                var dm = new DataManager();
-                var reader = dm.Read("SELECT ID FROM Deal ORDER BY ID DESC LIMIT 1");
+                var dealId = deal.GetLastId();
 
-                reader.Read();
-
-                var dealId = reader.GetInt32(0);
-
-                reader.Close();
                 foreach (var item in DataSet.GetFavoritesService())
                 {
                     var serviceDeal = new DealService(0, item.Number, dealId, item.ServiceID);
@@ -64,7 +58,6 @@ namespace NotafiThree.View.WindowPages
                 _frame.Navigate(new DealControllerPage(_frame));
             }
         }
-
 
         private void allClients_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

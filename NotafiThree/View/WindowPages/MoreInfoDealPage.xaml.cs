@@ -17,7 +17,7 @@ namespace NotafiThree.View.WindowPages
             Init();
         }
 
-        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void Back(object sender, System.Windows.RoutedEventArgs e)
         {
             _frame.Navigate(new DealControllerPage(_frame));
         }
@@ -29,7 +29,7 @@ namespace NotafiThree.View.WindowPages
             sum.Text = list.Sum(x => x.Sum).ToString("N2");
         }
 
-        private void Button_Click_1(object sender, System.Windows.RoutedEventArgs e)
+        private void DeleteDealService(object sender, System.Windows.RoutedEventArgs e)
         {
             DealService dealService = allDealService.SelectedItem as DealService;
             if(dealService != null)
@@ -39,7 +39,7 @@ namespace NotafiThree.View.WindowPages
             }
         }
 
-        private void Button_Click_2(object sender, System.Windows.RoutedEventArgs e)
+        private void NavigateToCreatorDealService(object sender, System.Windows.RoutedEventArgs e)
         {
             _frame.Navigate(new AddingServiceOnDealPage(_dealResult, _frame));
         }

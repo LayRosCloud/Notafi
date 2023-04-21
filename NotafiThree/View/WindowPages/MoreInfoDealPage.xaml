@@ -12,7 +12,7 @@
             <RowDefinition Height="75"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button x:Name="btnBack" Style="{StaticResource DefaultButton}" HorizontalAlignment="Left" Content="Назад" Click="Button_Click"/>
+        <Button x:Name="btnBack" Style="{StaticResource DefaultButton}" HorizontalAlignment="Left" Content="Назад" Click="Back"/>
 
         <DataGrid x:Name="allDealService" Grid.Row="1" BorderThickness="0" IsReadOnly="True" SelectionMode="Single" GridLinesVisibility="None" RowStyle="{StaticResource rowStyle}" CellStyle="{StaticResource cellStyle}" AutoGenerateColumns="False">
             <DataGrid.Columns>
@@ -26,13 +26,13 @@
         </DataGrid>
         
         <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center">
-            <Button Style="{StaticResource DefaultButton}" Content="Добавить" Background="Green" Foreground="White" Width="150" Margin="0 0 20 0" Click="Button_Click_2"/>
-            <Button Style="{StaticResource DefaultButton}" Content="Удалить" Background="{DynamicResource red-200}" Foreground="White" Width="150" Click="Button_Click_1"/>
+            <Button Style="{StaticResource DefaultButton}" Content="Добавить" Background="Green" Foreground="White" Width="150" Margin="0 0 20 0" Click="NavigateToCreatorDealService"/>
+            <Button Style="{StaticResource DefaultButton}" Content="Удалить" Background="{DynamicResource red-200}" Foreground="White" Width="150" Click="DeleteDealService"/>
         </WrapPanel>
 
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 50 0">
             <TextBlock Text="Сумма: " FontWeight="Bold" FontSize="25"/>
-            <TextBlock x:Name="sum" Text="1000000" FontWeight="Bold" FontSize="25" Foreground="{DynamicResource red-200}"/>
+            <TextBlock x:Name="sum" Text="0" FontWeight="Bold" FontSize="25" Foreground="{DynamicResource red-200}"/>
         </WrapPanel>
     </Grid>
 </Page>

@@ -13,8 +13,38 @@
         $"pwd={PASSWORD};" +
         $"database={DATABASE}";
 
-    public readonly static string EXCEPTION_OPEN_CONNECT = "Исключение! Не удалось открыть доступ к базе данных, так как она уже открыта";
-    public readonly static string EXCEPTION_CLOSE_CONNECT = "Исключение! Не удалось закрыть доступ к базе данных, так как она уже закрыта";
+
+    public readonly static string EXCEPTION_READER_IS_NULL = "Reader is not exists";
+    public readonly static string ERROR_ENTER_LOGIN = "Ваш логин был менее 6 символов, пожалуйста проверьте корректность введеных данных!";
+    public readonly static string ERROR_ENTER_PASSWORD = "Введите пароль!";
+    public readonly static string ERROR_WRONG_DATA = "Ваш логин или пароль был введен некорректно, пожалуйста проверьте корректность введеных данных!";
+    public readonly static string ERROR_CODE = "Вы ввели неверный код";
+    public readonly static string ERROR_INPUT_EMAIL = "Ваша почта введена некорректна";
+    public readonly static string ERROR_INPUT_REPEATPASSWORD = "Ваши пароли не совпадают";
+    public readonly static string ERROR_INPUT_FIRSTNAME = "Введите имя!";
+    public readonly static string ERROR_INPUT_LASTNAME = "Введите фамилию!";
+    public readonly static string ERROR_INPUT_BIRTHDAY = "Введите дату рождения!";
+    public readonly static string ERROR_INPUT_SERIES = "Вы ввели не всю серию паспорта";
+    public readonly static string ERROR_INPUT_NUMBEROFPASSPORT = "Вы ввели не весь номер паспорта";
+    public readonly static string ERROR_INPUT_ISW = "Выберите кем выдан ваш паспорт";
+    public readonly static string COMPLETE_REG = "Вы успешно зарегистрировались!";
+    public static class NavigationButtons
+    {
+        public readonly static string PATH_TO = "/Res/Images/";
+        public readonly static string ICON_PROFILE = $"{PATH_TO}profileNavigate.png";
+        public readonly static string ICON_SERVICE = $"{PATH_TO}serviceNavigate.png";
+        public readonly static string ICON_DEAL = $"{PATH_TO}serviceNavigate.png";
+        public readonly static string ICON_USERS = $"{PATH_TO}serviceNavigate.png";
+        public readonly static string ICON_CONTROLLER_SERVICE = $"{PATH_TO}serviceNavigate.png";
+        public readonly static string ICON_LOGOUT = $"{PATH_TO}logout.png";
+
+        public readonly static string TITLE_PROFILE = "профиль";
+        public readonly static string TITLE_SERVICE = "услуги";
+        public readonly static string TITLE_DEAL = "сделки";
+        public readonly static string TITLE_USERS = "пользователи";
+        public readonly static string TITLE_CONTROLLER_SERVICE = "упр. услугами";
+        public readonly static string TITLE_LOGOUT = "выйти";
+	}
 
     public static class Tables
     {

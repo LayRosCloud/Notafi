@@ -21,29 +21,28 @@ namespace NotafiThree.View.WindowPages
 				service.SetPriceOnId();
 				service.SetDiscountOnId();
 			}
+
 			_service = service;
+			title.Text = _service.Title;
+			description.Text = _service.Description;
+			typeOfDocument.Text = _service.TypeOfDocument;
+			price.SelectedValue = _service.Price.Id;
+			discount.SelectedValue = _service.Discount.Id;
 
 			Init();
-
-			DataContext = _service;
 		}
 
 		private void Init()
 		{
 			price.ItemsSource = new Price(0, 0, DateTime.Now).SelectAll();
 			discount.ItemsSource = new Discount(0, 0, DateTime.Now).SelectAll();
+			price.SelectedValue = _service.Price.Id;
+			discount.SelectedValue = _service.Discount.Id;
 		}
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			Price p = price.SelectedItem as Price;
-			Discount d = discount.SelectedItem as Discount;
-			if(p == null || d == null)
-			{
-				MessageBox.Show("Не выбрано ничего");
-				return;
-			}
-			var service = new Service(_service.Id, _service.Title, _service.Description, _service.ImageIcon, _service.TypeOfDocument, p.Id, d.Id);
+			Service service = new Service(_service.Id, title.Text, description.Text, "", typeOfDocument.Text, (int)price.SelectedValue, (int)discount.SelectedValue);
 			service.SetDiscountOnId();
 			service.SetPriceOnId();
 

@@ -50,7 +50,7 @@
             <TextBlock Grid.Row="0" Grid.Column="0" FontWeight="Bold" Text="Введите количество: "/>
             <TextBox x:Name="number" Grid.Row="0" Grid.Column="1" Text="0" TextWrapping="Wrap" Background="White"  BorderThickness="0"/>
         </Grid>
-        <Button Style="{StaticResource DefaultButton}" Content="Добавить" Margin="0 20 0 0" Click="Button_Click"/>
+        <Button Style="{StaticResource DefaultButton}" Content="Добавить" Margin="0 20 0 0" Click="AddServiceToDeal"/>
 
     </StackPanel>
 </Page>

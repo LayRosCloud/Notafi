@@ -30,8 +30,8 @@
         </WrapPanel>
 
         <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 20 0">
-            <Button Style="{StaticResource DefaultButton}" Width="200" Background="Green" Foreground="White"  Content="Сохранить данные" Margin="0 0 10 0"/>
-            <Button Style="{StaticResource DefaultButton}" Width="200" Background="{DynamicResource red-200}" Foreground="White"  Content="Выйти"/>
+            <Button Style="{StaticResource DefaultButton}" Width="200" Background="Green" Foreground="White"  Content="Сохранить данные" Margin="0 0 10 0" Click="UpdateData"/>
+            <Button Style="{StaticResource DefaultButton}" Width="200" Background="{DynamicResource red-200}" Foreground="White"  Content="Выйти" Click="ExitFromProfile"/>
         </WrapPanel>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -162,15 +162,15 @@
                                     </Grid.RowDefinitions>
 
                                     <TextBlock Text="Страна" Grid.Row="0" FontSize="15"/>
-                                    <ComboBox x:Name="cmbCountry" DisplayMemberPath="Name" SelectedIndex="{Binding Person.Address.Country.Id}" Grid.Row="0" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+                                    <ComboBox x:Name="cmbCountry" DisplayMemberPath="Name" IsEditable="True" SelectedValuePath="Id" SelectedValue="{Binding Person.Address.Country.Id}" Grid.Row="0" Grid.Column="1" BorderThickness="0" FontSize="15"/>
                                     <TextBlock Text="Регион" Grid.Row="1" FontSize="15"/>
-                                    <ComboBox x:Name="cmbRegion" IsEditable="True" DisplayMemberPath="Name" SelectedIndex="{Binding Person.Address.Region.Id}" Grid.Row="1" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+                                    <ComboBox x:Name="cmbRegion" IsEditable="True" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding Person.Address.Region.Id}" Grid.Row="1" Grid.Column="1" BorderThickness="0" FontSize="15"/>
                                     <TextBlock Text="Почтовый индекс" Grid.Row="2" FontSize="15"/>
-                                    <ComboBox x:Name="cmbMailAddress" IsEditable="True" DisplayMemberPath="Name" SelectedIndex="{Binding Person.Address.MailAddress.Id}" Grid.Row="2" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+                                    <ComboBox x:Name="cmbMailAddress" IsEditable="True" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding Person.Address.MailAddress.Id}" Grid.Row="2" Grid.Column="1" BorderThickness="0" FontSize="15"/>
                                     <TextBlock Text="Город" Grid.Row="3" FontSize="15"/>
-                                    <ComboBox x:Name="cmbCity" IsEditable="True" DisplayMemberPath="Name" SelectedIndex="{Binding Person.Address.City.Id}" Grid.Row="3" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+                                    <ComboBox x:Name="cmbCity" IsEditable="True" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding Person.Address.City.Id}" Grid.Row="3" Grid.Column="1" BorderThickness="0" FontSize="15"/>
                                     <TextBlock Text="Улица" Grid.Row="4" FontSize="15"/>
-                                    <ComboBox x:Name="cmbStreet" IsEditable="True" DisplayMemberPath="Name" SelectedIndex="{Binding Person.Address.Street.Id}" Grid.Row="4" Grid.Column="1" BorderThickness="0" FontSize="15"/>
+                                    <ComboBox x:Name="cmbStreet" IsEditable="True" DisplayMemberPath="Name" SelectedValuePath="Id" SelectedValue="{Binding Person.Address.Street.Id}" Grid.Row="4" Grid.Column="1" BorderThickness="0" FontSize="15"/>
                                 </Grid>
                             </TabItem>
                             <TabItem Header="Самоличный адрес" Background="Transparent" BorderThickness="0">

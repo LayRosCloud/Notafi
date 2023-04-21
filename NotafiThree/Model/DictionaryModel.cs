@@ -67,6 +67,7 @@ namespace NotafiThree.Model
             dataManager.ExecuteQuery(query, parameters);
             dataManager.CloseConnect();
         }
+
         protected List<T> GetAll<T>() where T:class
         {
             var dm = new DataManager();
@@ -97,7 +98,7 @@ namespace NotafiThree.Model
         public int GetLastId()
         {
             DataManager data = new DataManager();
-            var reader = data.Read($"SELECT ID FROM {TABLE_NAME} ORDER BY ID DESC LIMIT 0, 1");
+            var reader = data.Read($"SELECT ID FROM {TABLE_NAME} ORDER BY ID DESC LIMIT 1");
 
             reader.Read();
             int id = reader.GetInt32(0);

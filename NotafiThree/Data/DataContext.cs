@@ -4,7 +4,8 @@ namespace NotafiThree.Data
 {
     internal class DataContext
     {
-        private readonly static MySqlConnection _connection = new MySqlConnection(Strings.CONNECTION);
+        private readonly static MySqlConnection _connection 
+            = new MySqlConnection(Strings.CONNECTION);
 
         public static MySqlConnection GetConnection => _connection;
 
@@ -15,7 +16,6 @@ namespace NotafiThree.Data
         {
             if (_connection.State == System.Data.ConnectionState.Open)
             {
-                //throw new ChangeStateConnectionException(Strings.EXCEPTION_OPEN_CONNECT);
                 return;
             }
 
@@ -29,7 +29,6 @@ namespace NotafiThree.Data
         {
             if (_connection.State == System.Data.ConnectionState.Closed)
             {
-                //throw new ChangeStateConnectionException(Strings.EXCEPTION_CLOSE_CONNECT);
                 return;
             }
 

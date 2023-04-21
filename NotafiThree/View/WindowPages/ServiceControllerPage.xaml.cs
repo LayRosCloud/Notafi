@@ -1,6 +1,7 @@
 ﻿using NotafiThree.Model.DealData;
 using System;
 using System.Windows.Controls;
+using System.Linq;
 
 namespace NotafiThree.View.WindowPages
 {
@@ -19,10 +20,10 @@ namespace NotafiThree.View.WindowPages
 
 		private void Init()
 		{
-			services.ItemsSource = DataSet.GetServices();
+			services.ItemsSource = DataSet.GetServices().Where(x=> x.Title.ToLower().Contains(finder.Text.ToLower()));
 		}
 
-		private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+		private void DeleteService(object sender, System.Windows.RoutedEventArgs e)
 		{
 			Service service = services.SelectedItem as Service;
 
@@ -33,7 +34,7 @@ namespace NotafiThree.View.WindowPages
 			}
 		}
 
-		private void Button_Click_1(object sender, System.Windows.RoutedEventArgs e)
+		private void UpdateService(object sender, System.Windows.RoutedEventArgs e)
 		{
 			Service service = services.SelectedItem as Service;
 
@@ -43,14 +44,15 @@ namespace NotafiThree.View.WindowPages
 			}
 		}
 
-		private void Button_Click_2(object sender, System.Windows.RoutedEventArgs e)
+		private void CreateService(object sender, System.Windows.RoutedEventArgs e)
 		{
 			_frame.Navigate(new CreatorServicePage(_frame, null));
 		}
 
-		private void Button_Click_3(object sender, System.Windows.RoutedEventArgs e)
+		private void Refresh(object sender, System.Windows.RoutedEventArgs e)
 		{
 			Init();
 		}
-	}
+
+    }
 }

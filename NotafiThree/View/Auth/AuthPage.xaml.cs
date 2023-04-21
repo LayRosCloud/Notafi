@@ -23,7 +23,7 @@ namespace NotafiThree.View.Auth
         {
             if(login.Text.Length < 6)
             {
-                ShowErrorText("Ваш логин был менее 6 символов, пожалуйста проверьте корректность введеных данных!");
+                ShowErrorText(Strings.ERROR_ENTER_LOGIN);
                 return;
             }
 
@@ -33,12 +33,14 @@ namespace NotafiThree.View.Auth
             {
                 if (pass.Password.Length == 0)
                 {
-                    ShowErrorText("Введите пароль!");
+                    ShowErrorText(Strings.ERROR_ENTER_PASSWORD);
                     return;
                 }
 
-                var user = (from x in DataSet.GetUsers() where x.Login.ToLower() == login.Text.ToLower() 
-                            && x.Password == pass.Password select x).FirstOrDefault();
+                var user = (from x in DataSet.GetUsers() where 
+                            x.Login.ToLower() == login.Text.ToLower() 
+                            && x.Password == pass.Password select x)
+                            .FirstOrDefault();
 
                 if (user != null)
                 {
@@ -50,7 +52,7 @@ namespace NotafiThree.View.Auth
                 }
                 else
                 {
-                    ShowErrorText("Ваш логин или пароль был введен некорректно, пожалуйста проверьте корректность введеных данных!");
+                    ShowErrorText(Strings.ERROR_WRONG_DATA);
                 }
 
                 return;

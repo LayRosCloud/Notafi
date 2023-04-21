@@ -48,7 +48,7 @@ namespace NotafiThree.Model.PersonalityData
                 {"@postId", Post.Id}
             };
 
-            ExecuteQuery("INSERT INTO `Workers`(`PersonID`, `PostID`) VALUES (@personId,@postId)", dv);
+            ExecuteQuery("INSERT INTO `Worker`(`PersonID`, `PostID`) VALUES (@personId,@postId)", dv);
         }
 
         public override void Update()
@@ -60,7 +60,7 @@ namespace NotafiThree.Model.PersonalityData
                 {"@id", Id}
             };
 
-            ExecuteQuery("UPDATE `Workers` SET `PersonID`=@personId,`PostID`=@postId WHERE Id = @id", dv);
+            ExecuteQuery("UPDATE `Worker` SET `PersonID`=@personId,`PostID`=@postId WHERE Id = @id", dv);
         }
 
         protected override Worker SelectCurrentObject(MySqlDataReader reader)

@@ -99,7 +99,6 @@ namespace NotafiThree.Model.PersonalityData
                 {"@numberOfPassport", NumberOfPassport},
                 {"@addressId", Address.Id},
                 {"@iswId", ISW.Id},
-                {"@lname", LastName},
                 {"@phone", Phone},
                 {"@id", Id},
             };

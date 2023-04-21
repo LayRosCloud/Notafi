@@ -88,7 +88,7 @@ namespace NotafiThree.View.Auth
             }
             else
             {
-                MessageBox.Show("Вы ввели неверный код!");
+                MessageBox.Show(Strings.ERROR_CODE);
             }
         }
 
@@ -110,17 +110,22 @@ namespace NotafiThree.View.Auth
 
             if (login.Length < 6)
             {
-                _errorController.SetText("Ваш логин был менее 6 символов");
+                _errorController.SetText(Strings.ERROR_ENTER_LOGIN);
                 existsError = true;
             }
             else if (!email.Contains("@"))
             {
-                _errorController.SetText("Ваша почта введена некорректна");
+                _errorController.SetText(Strings.ERROR_INPUT_EMAIL);
                 existsError = true;
             }
+            else if(password.Length < 4)
+            {
+				_errorController.SetText(Strings.ERROR_ENTER_PASSWORD);
+				existsError = true;
+			}
             else if (password != passwordRepeat)
             {
-                _errorController.SetText("Ваши пароли не совпадают");
+                _errorController.SetText(Strings.ERROR_INPUT_REPEATPASSWORD);
                 existsError = true;
             }
 
@@ -151,32 +156,32 @@ namespace NotafiThree.View.Auth
 
             if (firstName.Length == 0)
             {
-                _errorController.SetText("Введите имя!");
+                _errorController.SetText(Strings.ERROR_INPUT_FIRSTNAME);
                 existsError = true;
             }
             else if (lastName.Length == 0)
             {
-                _errorController.SetText("Введите Фамилию!");
+                _errorController.SetText(Strings.ERROR_INPUT_LASTNAME);
                 existsError = true;
             }
             else if (date == null)
             {
-                _errorController.SetText("Введите дату рождения!");
+                _errorController.SetText(Strings.ERROR_INPUT_BIRTHDAY);
                 existsError = true;
             }
             else if (serie.Length != 4)
             {
-                _errorController.SetText("Вы ввели не всю серию паспорта");
+                _errorController.SetText(Strings.ERROR_INPUT_SERIES);
                 existsError = true;
             }
             else if (number.Length != 6)
             {
-                _errorController.SetText("Вы ввели не весь номер паспорта");
+                _errorController.SetText(Strings.ERROR_INPUT_NUMBEROFPASSPORT);
                 existsError = true;
             }
             else if (isw == null)
             {
-                _errorController.SetText("Выберите кем выдан ваш паспорт");
+                _errorController.SetText(Strings.ERROR_INPUT_ISW);
                 existsError = true;
             }
 
@@ -253,7 +258,7 @@ namespace NotafiThree.View.Auth
 
             _user.Person = _person;
             _user.Insert();
-            MessageBox.Show("Вы успешно зарегистрировались!");
+            MessageBox.Show(Strings.COMPLETE_REG);
             _frame.GoBack();
         }
     }

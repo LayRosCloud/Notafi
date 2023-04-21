@@ -3,7 +3,6 @@ using NotafiThree.Model.PersonalityData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows;
 
 namespace NotafiThree.Model.DealData
 {

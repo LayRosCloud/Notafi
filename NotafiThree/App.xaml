@@ -140,8 +140,6 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Margin" Value="0 0 5 0"/>
             <Setter Property="BorderBrush" Value="#7F000000"/>
-
-
         </Style>
         
     </Application.Resources>

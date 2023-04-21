@@ -11,7 +11,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <DataGrid x:Name="dgDeals" BorderThickness="0" ColumnHeaderStyle="{StaticResource headerStyle}" SelectionMode="Single" Grid.Row="1" RowStyle="{StaticResource rowStyle}" AutoGenerateColumns="False" GridLinesVisibility="None" IsReadOnly="True" CellStyle="{StaticResource cellStyle}">
@@ -27,12 +27,12 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Style="{DynamicResource DefaultButton}" Background="red" Click="Button_Click_1">
+                                <Button Style="{DynamicResource DefaultButton}" Background="red" Click="DeleteDealRow">
                                     <Button.Content>
                                         <Image Source="/Res/Images/musorka.png" Width="20"/>
                                     </Button.Content>
                                 </Button>
-                                <Button Background="white" Style="{StaticResource DefaultButton}" Foreground="{DynamicResource gray-700}" Click="Button_Click_2" Margin="5 0 0 0">
+                                <Button Background="white" Style="{StaticResource DefaultButton}" Foreground="{DynamicResource gray-700}" Click="NavigateToMoreInformation" Margin="5 0 0 0">
                                     <Button.Content>
                                         <Image Source="/Res/Images/more.png" Width="20"/>
                                     </Button.Content>
@@ -44,7 +44,7 @@
             </DataGrid.Columns>
         </DataGrid>
         
-        <Button Background="Transparent" BorderThickness="0" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" Click="Button_Click">
+        <Button Background="Transparent" BorderThickness="0" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10" Click="NavigateToCreatorDeal">
             <Border Background="{DynamicResource red-200}" CornerRadius="20" Width="50" Height="50">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="20" ShadowDepth="1" Opacity="0.5"/>
@@ -54,7 +54,16 @@
         </Button>
 
         <WrapPanel>
-            <ui:TextBoxControl Width="200" Thickness="0 0 3 0" WidthImage="30" ImageSource="/Res/Images/loop.png"/>
+            <ui:TextBoxControl x:Name="finder" Width="200" Thickness="0 0 3 0" WidthImage="30" ImageSource="/Res/Images/loop.png"/>
+            <Button Style="{StaticResource DefaultButton}" Content="Найти" Click="Refresh"/>
+        </WrapPanel>
+        <WrapPanel HorizontalAlignment="Right">
+            <WrapPanel Orientation="Vertical" Width="30">
+                <Button BorderThickness="0" Height="20" Width="20" Background="Red" Click="UpdateToUncompleteDeal"/>
+                <Button BorderThickness="0" Height="20" Width="20" Background="Yellow" Click="UpdateToWaitingDeal"/>
+                <Button BorderThickness="0" Height="20" Width="20" Background="Green" Click="UpdateToCompleteDeal"/>
+            </WrapPanel>
+            <Button Style="{StaticResource DefaultButton}"  Width="200" Content="Печать" Click="CreateWordDocument"/>
         </WrapPanel>
     </Grid>
 </Page>

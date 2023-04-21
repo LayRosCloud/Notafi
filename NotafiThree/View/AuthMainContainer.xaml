@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NotafiThree.View"
         mc:Ignorable="d"
+        Icon="/Res/Images/Icon.ico"
         Title="Окно авторизации" 
         Width="500"
         MinHeight="450" 

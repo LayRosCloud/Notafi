@@ -29,7 +29,7 @@
                                 <TextBlock Text="{Binding Service.PriceWithDiscount}" TextWrapping="Wrap" HorizontalAlignment="Right" FontSize="14" Foreground="{DynamicResource red-200}"/>
                             </StackPanel>
                         </WrapPanel>
-                        <Button Style="{StaticResource DefaultButton}" HorizontalAlignment="Right" Margin="0 0 50 0" Click="Button_Click">
+                        <Button Style="{StaticResource DefaultButton}" HorizontalAlignment="Right" Margin="0 0 50 0" Click="DeleteFavoriteService">
                             <Button.Content>
                                 <Image Source="/Res/Images/musorka.png"/>
                             </Button.Content>
@@ -38,7 +38,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button x:Name="backBtn" Style="{StaticResource DefaultButton}" VerticalAlignment="Top" HorizontalAlignment="Right" Width="50" Click="backBtn_Click"/>
+        <Button x:Name="backBtn" Style="{StaticResource DefaultButton}" VerticalAlignment="Top" HorizontalAlignment="Right" Width="50" Click="Back"/>
 
         <Border Grid.Row="1" Background="White" CornerRadius="10">
             <Border.Effect>
