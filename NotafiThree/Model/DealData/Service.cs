@@ -108,8 +108,8 @@ namespace NotafiThree.Model.DealData
             string description = reader.IsDBNull(2) ? null : reader.GetString(2);
             var typeOfDocument = reader.GetString(3);
 
-            var discountID = reader.GetInt32(4);
-            var priceID = reader.GetInt32(5);
+            var priceID = reader.GetInt32(4);
+            var discountID = reader.GetInt32(5);
 
             string icon = reader.IsDBNull(6) ? null : reader.GetString(6);
             return new Service(id, title, description, icon, typeOfDocument, priceID, discountID);

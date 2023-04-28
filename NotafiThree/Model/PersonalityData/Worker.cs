@@ -32,7 +32,7 @@ namespace NotafiThree.Model.PersonalityData
 
         public void SetPersonOnId()
         {
-            Person = (from x in NotafiThree.Model.DealData.DataSet.GetPersons() where x.Id == _personId select x).FirstOrDefault();
+            Person = (from x in DealData.DataSet.GetPersons() where x.Id == _personId select x).FirstOrDefault();
         }
 
         public void SetPostOnId(){

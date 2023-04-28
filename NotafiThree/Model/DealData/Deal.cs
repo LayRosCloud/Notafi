@@ -3,6 +3,7 @@ using NotafiThree.Model.PersonalityData;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 
 namespace NotafiThree.Model.DealData
 {
@@ -35,7 +36,7 @@ namespace NotafiThree.Model.DealData
         }
         public void SetWorkerOnId()
         {
-            Worker = (from x in DataSet.GetWorkers() where x.Id == workerId select x).FirstOrDefault();
+            Worker = (from x in DataSet.GetWorkers() where x.Id == workerId select x).First();
         }
 
         public void SetPersonOnId()
@@ -77,7 +78,7 @@ namespace NotafiThree.Model.DealData
             var personId = reader.GetInt32(3);
             var commision = reader.GetDouble(4);
 
-            return new Deal(id,commision, date, workerId, personId);
+            return new Deal(id,commision, date, personId, workerId);
         }
     }
 }
