@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\betrayal\Desktop\app\Notafi\NotafiThree\obj\Debug\
+C:\Users\Betrayal\Desktop\appto\Notafi\NotafiThree\obj\Debug\
 NotafiThree
 none
 false
 DEBUG;TRACE
-C:\Users\betrayal\Desktop\app\Notafi\NotafiThree\App.xaml
+C:\Users\Betrayal\Desktop\appto\Notafi\NotafiThree\App.xaml
 161525013149
 
-57-1906499834
-322026374187
+58-511048065
+331524812680
 View\AuthMainContainer.xaml;View\Auth\AuthPage.xaml;View\Auth\RegisterPage.xaml;View\MainContainer.xaml;View\TextBoxControl.xaml;View\WindowPages\AddingServiceOnDealPage.xaml;View\WindowPages\ChangerRoleUser.xaml;View\WindowPages\CreatorDealPage.xaml;View\WindowPages\CreatorServicePage.xaml;View\WindowPages\DealControllerPage.xaml;View\WindowPages\FavoritesServicePage.xaml;View\WindowPages\MoreInfoDealPage.xaml;View\WindowPages\ProfilePage.xaml;View\WindowPages\ServiceControllerPage.xaml;View\WindowPages\ServicesPage.xaml;View\WindowPages\UserControllerPage.xaml;
 
 True

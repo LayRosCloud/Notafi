@@ -27,6 +27,7 @@ namespace NotafiThree.View.WindowPages
 
             listServices.ItemsSource = _sourceList;
             _sortAdapter = new SortingAdapter();
+            countWrites.Text = $"Найдено {_sourceList.Count} из {_sourceList.Count}";
         }
 
         private void finder_TextChanged(object sender, RoutedEventArgs e)
@@ -51,8 +52,10 @@ namespace NotafiThree.View.WindowPages
 
         private void viewChanged_Click(object sender, RoutedEventArgs e)
         {
-            listServices.ItemsSource = _sortAdapter.Sort(finder.Text, _ask);
+            var list = _sortAdapter.Sort(finder.Text, _ask);
+            listServices.ItemsSource = list;
             viewChanged.Visibility = Visibility.Collapsed;
+            countWrites.Text = $"Найдено {list.Count} из {_sourceList.Count}";
         }
 
         private void NavigateToFavoriteServices(object sender, RoutedEventArgs e)

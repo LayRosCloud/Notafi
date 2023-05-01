@@ -69,6 +69,7 @@
                     <Image x:Name="orderby" Source="/Res/Images/generic.png" Margin="5 0"/>
                 </Button.Content>
             </Button>
+            <TextBlock x:Name="countWrites" VerticalAlignment="Center" FontWeight="Bold"/>
         </StackPanel>
         <Button Style="{StaticResource DefaultButton}" Margin="15 0 0 0" HorizontalAlignment="Right" Click="NavigateToFavoriteServices">
             <Button.Content>

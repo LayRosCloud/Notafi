@@ -9,12 +9,12 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DealControllerPage">
 
-    <Grid>
+    <Grid Cursor="">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <DataGrid x:Name="dgDeals" BorderThickness="0" ColumnHeaderStyle="{StaticResource headerStyle}" SelectionMode="Single" Grid.Row="1" RowStyle="{StaticResource rowStyle}" AutoGenerateColumns="False" GridLinesVisibility="None" IsReadOnly="True" CellStyle="{StaticResource cellStyle}">
+        <DataGrid x:Name="dgDeals" BorderThickness="0" ColumnHeaderStyle="{StaticResource headerStyle}" SelectionMode="Single" Grid.Row="1" RowStyle="{StaticResource rowStyle}" AutoGenerateColumns="False" GridLinesVisibility="None" IsReadOnly="True" CellStyle="{StaticResource cellStyle}" LoadingRow="dgDeals_LoadingRow">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding Deal.Person.LastName}"/>
                 <DataGridTextColumn Header="Имя" Binding="{Binding Deal.Person.FirstName}"/>
@@ -55,6 +55,10 @@
 
         <WrapPanel>
             <ui:TextBoxControl x:Name="finder" Width="200" Thickness="0 0 3 0" WidthImage="30" ImageSource="/Res/Images/loop.png"/>
+            <TextBlock VerticalAlignment="Center" Text="С " FontWeight="Bold"/>
+            <DatePicker x:Name="beforeDate" VerticalAlignment="Center" Width="100" SelectedDate="10/10/10"/>
+            <TextBlock VerticalAlignment="Center" Text=" По " FontWeight="Bold"/>
+            <DatePicker x:Name="afterDate" VerticalAlignment="Center" Width="100" SelectedDate="10/30/23"/>
             <Button Style="{StaticResource DefaultButton}" Content="Найти" Click="Refresh"/>
         </WrapPanel>
         <WrapPanel HorizontalAlignment="Right">
@@ -63,7 +67,8 @@
                 <Button BorderThickness="0" Height="20" Width="20" Background="Yellow" Click="UpdateToWaitingDeal"/>
                 <Button BorderThickness="0" Height="20" Width="20" Background="Green" Click="UpdateToCompleteDeal"/>
             </WrapPanel>
-            <Button Style="{StaticResource DefaultButton}"  Width="200" Content="Печать" Click="CreateWordDocument"/>
+            <Button Style="{StaticResource DefaultButton}"  Width="100" Content="Печать" Click="CreateWordDocument"/>
+            <Button Style="{StaticResource DefaultButton}"  Width="100" Content="Excel" Click="CreateExcelDocument"/>
         </WrapPanel>
     </Grid>
 </Page>

@@ -2,10 +2,12 @@
 using NotafiThree.Data;
 using NotafiThree.Model.DealData;
 using NotafiThree.Scripts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace NotafiThree.View.WindowPages
 {
@@ -21,10 +23,16 @@ namespace NotafiThree.View.WindowPages
 
         private void Init()
         {
-            dgDeals.ItemsSource = 
-                DataSet.GetDealResults().
-                Where(x => x.Deal.Worker.Person.Id == SaveElementData.UserIntance.Person.Id 
+            var list = DataSet.GetDealResults().
+                Where(x => x.Deal.Worker.Person.Id == SaveElementData.UserIntance.Person.Id
                 && x.Deal.Person.FullName.ToLower().Contains(finder.Text.ToLower()));
+
+            DateTime before = beforeDate.SelectedDate.Value;
+            DateTime after = afterDate.SelectedDate.Value;
+
+            DateTime now = DateTime.Now;
+
+            dgDeals.ItemsSource = list.Where(x => x.Deal.Date >= before && x.Deal.Date <= after);
         }
 
         private void NavigateToCreatorDeal(object sender, RoutedEventArgs e)
@@ -48,7 +56,14 @@ namespace NotafiThree.View.WindowPages
             _frame.Navigate(new MoreInfoDealPage(dealResult, _frame));
         }
 
-		private void CreateWordDocument(object sender, RoutedEventArgs e)
+        private void CreateExcelDocument(object sender, RoutedEventArgs e)
+        {
+            ExcelController controller = new ExcelController();
+            controller.CreateList(DataSet.GetDealResults().Where(x=>x.Deal.Worker.Person.Id == SaveElementData.UserIntance.Person.Id));
+            controller.SaveAs();
+        }
+
+            private void CreateWordDocument(object sender, RoutedEventArgs e)
 		{
             var dealResult = dgDeals.SelectedItem as DealResult;
 
@@ -125,5 +140,29 @@ namespace NotafiThree.View.WindowPages
 		{
             Init();
 		}
-	}
+
+        private void dgDeals_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            var dealResult = e.Row.DataContext as DealResult;
+            if (dealResult == null)
+            {
+                return;
+            }
+
+            if (dealResult.Result.Id == 1)
+            {
+                e.Row.Background = new SolidColorBrush(Colors.Green);
+            }
+
+            if (dealResult.Result.Id == 2)
+            {
+                e.Row.Background = new SolidColorBrush(Colors.Yellow);
+            }
+
+            if (dealResult.Result.Id == 3)
+            {
+                e.Row.Background = new SolidColorBrush(Colors.Red);
+            }
+        }
+    }
 }
