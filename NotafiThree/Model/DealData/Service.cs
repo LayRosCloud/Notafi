@@ -16,6 +16,8 @@ namespace NotafiThree.Model.DealData
         private int _priceId;
         private int _discountId;
 
+        public Uri ImageUri => new Uri(ImageIcon, UriKind.Relative);
+
         public Price Price { get;  set; }
         public Discount Discount { get; set; }
 

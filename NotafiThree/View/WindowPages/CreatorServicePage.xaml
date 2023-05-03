@@ -21,6 +21,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
 
             <TextBlock Text="Введите заголовок: " Grid.Row="0" FontWeight="Bold" Margin="0 0 10 0"/>
@@ -37,7 +38,10 @@
 
             <TextBlock Text="Введите скидку: " Grid.Row="4" FontWeight="Bold" Margin="0 0 10 0"/>
             <ComboBox x:Name="discount" DisplayMemberPath="Number" SelectedValuePath="Id" Grid.Row="4" Grid.Column="1" Width="200"/>
-        </Grid>
+
+            <TextBlock Text="Выберите фото: " Grid.Row="5" FontWeight="Bold" Margin="0 0 10 0"/>
+            <Button Content="Фото" Grid.Column="1" Grid.Row="5" Click="Button_Click_3"/>
+            </Grid>
         <Button Style="{StaticResource DefaultButton}" Content="Применить" Margin="0 5 0 0" Click="Button_Click"/>
     </StackPanel>
     <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right">

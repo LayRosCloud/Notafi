@@ -1,4 +1,5 @@
-﻿using NotafiThree.Model.DealData;
+﻿using Microsoft.Win32;
+using NotafiThree.Model.DealData;
 using System;
 using System.Collections.Generic;
 using Excel = Microsoft.Office.Interop.Excel;
@@ -61,7 +62,13 @@ namespace NotafiThree.Scripts
         }
         public void SaveAs()
         {
-            _worksheet.SaveAs(@"C:\Users\Betrayal\Desktop\app\Notafi\test1.xlsx");
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "Excel(*.xlsx)|*.xlsx";
+            if(save.ShowDialog() == false)
+            {
+                return;
+            }
+            _worksheet.SaveAs(save.FileName);
             _app.Quit();
         }
     }

@@ -7,8 +7,9 @@ namespace NotafiThree.Scripts
 {
     internal class SortingAdapter
     {
-        private List<Service> _sourceServices;
+        private readonly List<Service> _sourceServices;
         private List<Service> _sortedServices;
+
         public SortingAdapter()
         {
             _sourceServices = DataSet.GetServices();
@@ -17,22 +18,25 @@ namespace NotafiThree.Scripts
 
         public List<Service> Sort(string text, bool ask)
         {
-            FindOnName(text);
+			_sortedServices.Clear();
+			_sortedServices.AddRange(_sourceServices);
+            
+			FindOnName(text);
             OrderBy(ask);
             return _sortedServices;
         }
 
         private void FindOnName(string text)
         {
-            _sortedServices.Clear();
-            _sortedServices.AddRange(_sourceServices);
+            string textLower = text.ToLower();
 
-            _sortedServices = (from x in _sortedServices where x.Title.ToLower().Contains(text.ToLower()) select x).ToList();
+			_sortedServices = (from x in _sortedServices where x.Title.ToLower().Contains(textLower) 
+                               || x.Description.ToLower().Contains(textLower) select x).ToList();
         }
 
-        private void OrderBy(bool ask)
+        private void OrderBy(bool isAsc)
         {
-            if (ask)
+            if (isAsc)
             {
                 _sortedServices = (from x in _sortedServices orderby x.Title select x).ToList();
             }

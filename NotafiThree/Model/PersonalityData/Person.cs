@@ -23,12 +23,8 @@ namespace NotafiThree.Model.PersonalityData
         private int _iswId;
         private int _addressId;
 
-        public string FullName {
-            get
-            {
-                return $"{LastName} {FirstName} {Patronymic}";
-            }
-        }
+        public string FullName => $"{LastName} {FirstName} {Patronymic}";
+        
         
         public Person(int id, string lname, string fname, string patronymic, 
         string phone, int sex, DateTime birthDay, int series, int numberOfPassport,

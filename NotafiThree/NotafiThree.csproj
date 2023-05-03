@@ -275,6 +275,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Res\Images\638186407791417724Без названия.jpg" />
+    <Resource Include="Res\Images\638186409879310393Без названия.jpg" />
+    <Resource Include="Res\Images\638186411238721166nn.jpg" />
+    <Resource Include="Res\Images\638186413357223209nns.png" />
     <Resource Include="Res\Images\generic.png" />
     <Resource Include="Res\Images\genericDesc.png" />
     <Resource Include="Res\Images\heart.png" />

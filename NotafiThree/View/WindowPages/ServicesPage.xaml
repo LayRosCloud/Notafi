@@ -30,7 +30,7 @@
                         
                         <Border Width="100" Height="100" CornerRadius="10">
                             <Border.Background>
-                                <ImageBrush Stretch="Fill" ImageSource="/Res/Images/imageErrorFull.png"/>
+                                <ImageBrush Stretch="Fill" ImageSource="{Binding ImageUri}"/>
                             </Border.Background>
                         </Border>
 

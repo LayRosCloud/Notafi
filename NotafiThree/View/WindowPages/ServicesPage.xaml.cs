@@ -52,10 +52,10 @@ namespace NotafiThree.View.WindowPages
 
         private void viewChanged_Click(object sender, RoutedEventArgs e)
         {
-            var list = _sortAdapter.Sort(finder.Text, _ask);
-            listServices.ItemsSource = list;
+            var sortedList = _sortAdapter.Sort(finder.Text, _ask);
+            listServices.ItemsSource = sortedList;
             viewChanged.Visibility = Visibility.Collapsed;
-            countWrites.Text = $"Найдено {list.Count} из {_sourceList.Count}";
+            countWrites.Text = $"Найдено {sortedList.Count} из {_sourceList.Count}";
         }
 
         private void NavigateToFavoriteServices(object sender, RoutedEventArgs e)

@@ -14,6 +14,7 @@ namespace NotafiThree.View.WindowPages
             _frame = frame;
             _dealResult = dealResult;
             btnBack.Content = "<-";
+            infoAboutDeal.Text = $"{dealResult.Deal.Person.FullName}: {dealResult.Deal.Date}";
             Init();
         }
 
